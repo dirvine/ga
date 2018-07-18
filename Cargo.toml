@@ -1,0 +1,14 @@
+cargo-features = ["edition"]
+[package]
+authors = ["David Irvine <david.irvine@maidsafe.net>"]
+edition = "2018"
+name = "ga"
+version = "0.1.0"
+
+[dependencies]
+rand = "~0.5.3"
+rayon = "~1.0.1"
+bit-vec = "~0.5.0"
+
+[dev-dependencies]
+proptest = "0.8.3"
