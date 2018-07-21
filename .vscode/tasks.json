@@ -23,7 +23,7 @@
       "label": "cargo test",
       "command": "cargo",
       "args": [
-        "test -- --nocapture"
+        "test"
       ],
       "problemMatcher": [
         "$rustc"
@@ -56,7 +56,18 @@
       "label": "cargo test",
       "command": "cargo",
       "args": [
-        "test -- --nocapture"
+        "test"
+      ],
+      "problemMatcher": [
+        "$rustc"
+      ]
+    },
+    {
+      "type": "cargo",
+      "label": "cargo test",
+      "command": "cargo",
+      "args": [
+        "test"
       ],
       "problemMatcher": [
         "$rustc"

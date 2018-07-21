@@ -12,7 +12,7 @@ use rayon::prelude::*;
     /// of the population (according to their fitness) a chance to be chosen and thus
     /// reduces the unfair nature of fitness-proportional selection methods.
     /// see https://en.wikipedia.org/wiki/Stochastic_universal_sampling for details
-    pub fn stochastic_universal_sample(
+    pub fn select_breeders(
         population: &mut [Organism],
         num_to_select: usize,
     ) -> Vec<Organism> {
@@ -58,9 +58,10 @@ use rayon::prelude::*;
 mod tests {
     use bit_vec::BitVec;
     use crate::organism::Organism;
-    use super::stochastic_universal_sample;
+    use super::select_breeders;
+
     #[test]
-    fn check_n() {
+    fn check_n_populations() {
         let num = 10;
         let bv = BitVec::from_elem(num, true);
         let mut population = Vec::with_capacity(num);
@@ -68,7 +69,7 @@ mod tests {
             population.push(Organism::new(bv.clone(), crate::rand_f64()));
         }
 
-        let new = stochastic_universal_sample(&mut population, num);
+        let new = select_breeders(&mut population, num);
         assert_eq!(num, new.len());
         for i in 0..new.len() {
             println!(
@@ -77,9 +78,9 @@ mod tests {
                 new[i].read_last_fitness()
             )
         }
-        let new = stochastic_universal_sample(&mut population, num / 2);
+        let new = select_breeders(&mut population, num / 2);
         assert_eq!(num / 2, new.len());
-        let new = stochastic_universal_sample(&mut population, num * 2);
+        let new = select_breeders(&mut population, num * 2);
         assert_eq!(num * 2, new.len());
     }
 
