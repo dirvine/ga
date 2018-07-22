@@ -16,6 +16,6 @@ pub fn rand_interlace(parent1: &BitVec, parent2: &BitVec) -> BitVec {
 
   a.iter()
     .zip(b.iter().cycle())
-    .map(|(x, y)| if crate::rand_bool() { x } else { y })
+    .map(|(x, y)| if super::rand_bool() { x } else { y })
     .collect()
 }

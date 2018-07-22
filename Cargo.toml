@@ -1,7 +1,5 @@
-cargo-features = ["edition"]
 [package]
 authors = ["David Irvine <david.irvine@maidsafe.net>"]
-edition = "2018"
 name = "ga"
 version = "0.1.0"
 

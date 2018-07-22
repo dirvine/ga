@@ -1,7 +1,13 @@
-#![feature(rust_2018_preview, use_extern_macros)]
+
 pub mod crossover;
 pub mod organism;
 pub mod select_breeders;
+extern crate rand;
+extern crate bit_vec;
+extern crate rayon;
+#[cfg(test)]
+#[macro_use] extern crate proptest;
+
 use rand::prelude::*;
 
 /// (0..1]

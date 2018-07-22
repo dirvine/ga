@@ -1,7 +1,7 @@
 //! Stochastic universal sampling algorithm:
 //! https://en.wikipedia.org/wiki/Stochastic_universal_sampling
 
-use crate::organism::Organism;
+use super::organism::Organism;
 use rand::{thread_rng, Rng};
 use rayon::prelude::*;
 
