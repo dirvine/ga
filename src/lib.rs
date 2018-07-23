@@ -1,4 +1,4 @@
-
+#![feature(extern_prelude)] 
 pub mod crossover;
 pub mod organism;
 pub mod select_breeders;
@@ -9,7 +9,8 @@ extern crate rayon;
 #[macro_use] extern crate proptest;
 
 use rand::prelude::*;
-
+pub use organism::Organism;
+pub use select_breeders::select_breeders;
 /// (0..1]
 pub fn rand_f64() -> f64 {
     let mut rng = thread_rng();
@@ -23,12 +24,14 @@ pub fn rand_bool() -> bool {
 #[cfg(test)]
 mod tests {
 
-    use proptest;
+    use proptest::prelude::*;
 
-    proptest::proptest! {
+//playing this stragely works, which is weird for 2 reasons 1. rng is not seeded and not using v
+    proptest! {
         #[test]
-        fn test_rand64(v in any::<u64>()) {
-            prop_assert!(v < 1);
+        fn test_rand64(_v in any::<u64>()) {
+            prop_assert!(super::rand_f64() <= 1f64);
+            prop_assert!(super::rand_f64() > 0f64);
         }
     }
 }
