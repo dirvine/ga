@@ -7,11 +7,13 @@ extern crate bit_vec;
 extern crate rayon;
 #[cfg(test)]
 #[macro_use] extern crate proptest;
+extern crate failure;
+#[macro_use] extern crate failure_derive;
 
 use rand::prelude::*;
 pub use organism::Organism;
 pub use select_breeders::select_breeders;
-/// (0..1]
+/// (0..1
 pub fn rand_f64() -> f64 {
     let mut rng = thread_rng();
     rng.gen()
