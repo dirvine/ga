@@ -1,5 +1,4 @@
-#[macro_use]
-extern crate criterion;
+#[macro_use] extern crate criterion;
 extern crate ga;
 extern crate bit_vec;
 

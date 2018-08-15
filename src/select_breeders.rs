@@ -76,8 +76,8 @@ fn create_population(num: usize) -> Vec<Organism> {
     #[test]
     fn check_n_populations() {
        let num = 20;
-       let mut population = create_population(num);
-        let new = select_breeders(&mut population, num);
+       let population = create_population(num);
+        let new = select_breeders(&population, num);
         assert_eq!(num, new.len());
         for i in 0..new.len() {
             println!(
@@ -86,9 +86,9 @@ fn create_population(num: usize) -> Vec<Organism> {
                 new[i].read_last_fitness()
             )
         }
-        let new = select_breeders(&mut population, num / 2);
+        let new = select_breeders(&population, num / 2);
         assert_eq!(num / 2, new.len());
-        let new = select_breeders(&mut population, num * 2);
+        let new = select_breeders(&population, num * 2);
         assert_eq!(num * 2, new.len());
     }
 
