@@ -1,27 +1,20 @@
-#![feature(rust_2018_preview)]
 pub mod crossover;
 pub mod organism;
 pub mod population;
 pub mod select_breeders;
 pub mod utils;
 
-extern crate bit_vec;
-extern crate rand;
-extern crate rayon;
-extern crate rulinalg;
 #[cfg(test)]
 #[macro_use]
 extern crate proptest;
-extern crate failure;
 #[macro_use]
 extern crate failure_derive;
-extern crate serde;
 #[macro_use]
 extern crate serde_derive;
 
-pub use organism::Organism;
+pub use crate::organism::Organism;
+pub use crate::select_breeders::select_breeders;
 use rand::prelude::*;
-pub use select_breeders::select_breeders;
 /// (0..1
 pub fn rand_f64() -> f64 {
     let mut rng = thread_rng();
