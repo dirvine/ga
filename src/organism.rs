@@ -2,7 +2,7 @@ use bit_vec::BitVec;
 
 #[derive(Fail, Debug, PartialEq, Clone)]
 #[fail(
-  display = "An error occurred, chromeosones  {:?} : fitness  ({})",
+  display = "An error occurred, chromosomes  {:?} : fitness  ({})",
   chromosomes,
   fitness
 )]
